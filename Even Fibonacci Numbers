@@ -1,0 +1,24 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int i,sum=0,a=1,b=2,c=0;
+    for(i=0;i<30;i++)
+    {
+        sum=a+b;
+        a=b;
+        b=sum;
+        cout <<"\nfibbonaci:"<<sum;
+        if(sum%2==0)
+        {
+            cout <<"\nsum:"<<sum;
+            c=c+sum;
+        }
+        
+    }
+    cout << "value of sum:" << c+2;
+   
+   return 0;
+}
