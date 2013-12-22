@@ -1,0 +1,36 @@
+#include <iostream>
+
+using namespace std;
+int main()
+{    
+      int n,num,digit,rev,final=0;
+     for(int i=101;i<1000;i++)
+     {
+     for(int j=101;j<1000;j++)
+     
+     {
+     n=0;
+     num=0;
+     digit=0;
+     rev=0;
+     num = i*j;
+     n=num;
+          
+     do
+     {
+         digit = n%10;
+         rev = (rev*10) + digit;
+         n = n/10;
+     }while (n!=0);
+       if (num==rev)
+       {
+          
+           if(rev>final)
+           final=rev;
+                   
+       }
+     }
+     }
+    cout<<final;              
+    return 0;
+}    
