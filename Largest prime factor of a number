@@ -1,0 +1,35 @@
+#include <iostream>
+
+using namespace std;
+
+int isPrime(unsigned long int n)
+{
+    for(unsigned long int i=2;i*i<(n);i++)
+    {
+        if(n%i==0)
+        {
+            return 0;
+            break;
+        }
+    }
+    return 1;
+}
+
+int main()
+{
+    unsigned long int num=600851475143;
+    unsigned long int max=2, i=2;
+    while(num!=1)
+    {
+        if(num%i==0 && isPrime(i))
+        {
+            max=i;
+            num/=i;
+            i--;
+        }
+
+        i++;
+    }
+    cout<<max;
+    return 0;
+}
