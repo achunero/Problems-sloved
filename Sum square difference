@@ -1,0 +1,28 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    unsigned long int i,j,sqs=0,ssq=0,sum=0,final=0;
+   for(i=1;i<101;i++)
+   {
+       j=i*i;
+       cout<<"\ni:"<<i<<"\t"<<"j:"<<j;
+       sqs=sqs+j;
+       cout<<"\nsqs:"<<sqs;
+   }
+   for(i=1;i<101;i++)
+   {
+      sum=sum+i; 
+   }
+   cout<<"sum:"<<sum;
+   ssq=(sum*sum);
+   cout<<"\nssq:"<<ssq<<"\n";
+   if(ssq>sqs)
+   final=ssq-sqs;
+   else
+   final=sqs-ssq;
+   cout<<final;
+   return 0;
+}
