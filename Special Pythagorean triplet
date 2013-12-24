@@ -1,0 +1,31 @@
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+  
+
+int main()
+{
+   int a,b,c;
+   float c1,sum;
+   for(a=1;a<1000;a++)
+   {
+       for(b=a+1;b<1000;b++)
+       {
+           (c)=(a*a)+(b*b);
+           c1=sqrt(c);
+           if(c1>a && c1>b)
+           sum=a+b+c1;
+           if(sum==1000)
+           {
+               cout<<"\na:"<<a<<"\nb:"<<b<<"\nc:"<<c1;
+               break;
+           }
+       }
+       
+   }
+   
+   
+   return 0;
+}
