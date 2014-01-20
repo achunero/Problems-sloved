@@ -1,0 +1,49 @@
+#include <iostream>
+//#include <conio.h>
+using namespace std;
+#define MAX 10
+
+class Inssort{
+    int arr[MAX],n;
+    public:
+    void getdata();
+    void showdata();
+    void sortLogic();
+};
+
+void Inssort :: getdata(){
+    cout<<"How many elements you require : ";
+    cin>>n;
+    for(int i=0;i<n;i++)
+        cin>>arr[i];
+}
+
+void Inssort :: showdata(){
+    cout<<"\n--Display--\n";
+    for(int i=0;i<n;i++)
+        cout<<arr[i]<<"   ";
+}
+
+void Inssort :: sortLogic(){
+    int temp,min,i;
+    for(int j=1;j<n;j++){
+        temp = arr[j];
+        i=j-1;
+        while(i>=0 && arr[i]>temp){
+            arr[i+1] = arr[i];
+            i=i-1;
+        }
+        arr[i+1] = temp;
+    }
+}
+
+int main(){
+//    clrscr();
+    cout<<"\n*****Insertion Sort*****\n";
+    Inssort obj;
+    obj.getdata();
+    obj.sortLogic();
+    obj.showdata();
+ //   getch();
+ return 0;
+}
