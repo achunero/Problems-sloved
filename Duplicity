@@ -1,0 +1,31 @@
+#include<stdio.h>
+void change(char *str)
+{
+    int i=1;
+    int j=1;
+    int k;
+    int d=0;
+ while(str[i]!='\0')
+ {
+     if(str[i-1]==str[i])
+     {
+         k=i+1;
+        while(str[k]!='\0'&&str[k-1]==str[k])
+         {
+             k++;
+         }
+         i=k;
+      }
+    str[j]=str[i];
+     j++;
+     i++;
+}
+ str[j]='\0';
+ printf("%s",str);
+}
+int main()
+{
+	char s[]="HHelllo";
+ change(s);
+ return 0;
+}
