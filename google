@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head title="Google">
+<style>
+body{
+background-image:url("google.png");
+background-repeat:no-repeat;
+background-position:530px 100px;
+background-size:300px 300px;
+background-attachment:fixed;
+}
+
+button.signin{
+border-radius:3px 3px 3px 3px;
+border: 1px solid #4d90fe;
+padding:6px 13px;
+background-color:#4d90fe;
+color:white;
+font-size:13px;
+font-weight:bold;
+position:relative;
+top:8px;
+left:1260px;
+}
+button.left{
+border: 1.5px solid #DCDCDC;
+border-radius:2px 2px 2px 2px;
+padding:8px 12px;
+background-color:#F5F5F5;
+color:black;
+font-size:10px;
+font-weight:bold;
+position:relative;
+top:335px;
+left:10px;
+font-family:arial, sans-serif;
+font-size:10px;
+}
+button.right{
+border: 1.5px solid #DCDCDC;
+border-radius:2px 2px 2px 2px;
+padding:8px 12px;
+background-color:#F5F5F5;
+color:black;
+font-size:10px;
+font-weight:bold;
+position:relative;
+top:335px;
+left:25px;
+font-family:arial, sans-serif;
+font-size:10px;
+}
+button.left:hover,button.right:hover{
+border:solid 1px #d9d9d9;
+background-color:#F5F5F5;
+box-shadow:1px 1px 1px grey;
+}
+#box{
+width:550px;
+height:25px;
+position:relative;
+top:290px;
+left:400px;
+border:solid 1px #d9d9d9;
+background: #fff;
+border-top:solid 1px #c0c0c0;
+border-right:none;
+color:#333;
+font-family:arial, sans-serif;
+font-size:1em;
+text-indent:10px;	
+}
+a:link {
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:hover {
+    color: black;
+    background-color: transparent;
+    text-decoration: underline;
+}
+a:active {
+    color: black;
+    background-color: transparent;
+    text-decoration: underline;
+}
+#first{	
+width:27%;
+position:relative;
+top:380px;
+left:410px;
+font-family:arial, sans-serif;
+font-size:13px;
+}
+footer{
+position:relative;
+top:540px;
+border:solid 1px #d9d9d9;
+background-color:#F5F5F5;
+padding:7px;
+}
+</style>
+</head>
+<body>
+<header>
+<button class="signin" type="button" autofocus onclick="alert('Please Sign In using google Id')">Sign in</button>
+<a href="https://www.google.co.in" target="_blank">
+<img src="google apps.png" alt="Google apps" style="width:18px;height:18px;position:relative;top:12px;left:1140px;border:0;">
+</a>
+<a href="https://www.google.co.in/imghp?hl=en&tab=wi&ei=B7yrVcz1LYuIuwSwmqJY&ved=0CBIQqi4oAQ" target="_blank" 
+style="position:relative;top:10px;left:1050px;font-family:arial, sans-serif;font-size:13px;">Images</a>
+<a href="https://accounts.google.com" target="_blank" 
+style="position:relative;top:10px;left:950px;font-family:arial,sans-serif;font-size:13px;">Gmail</a>
+</header>
+<section>
+<input id="box" type="text" >
+<button type="button" class="left" autofocus>Google Search</button>
+<button type="button" class="right" autofocus>I'm Feeling Lucky</button> 
+<table id="first">
+    <tr>
+	  <td>Google.co.in offered in:</td>
+	  <td><a href="https://www.google.com" style="color:blue;">English</a></td>	
+	  <td><a href="https://www.google.com" style="color:blue;">Tamil</a></td>	
+	  <td><a href="https://www.google.com" style="color:blue;">Telugu</a></td>	
+	  <td><a href="https://www.google.com" style="color:blue;">Hindi</a></td>	
+	  <td><a href="https://www.google.com" style="color:blue;">Kannada</a></td>	
+    </tr>
+</table>	
+</section>
+<footer>
+<div> 
+<table style="width:20%;font-family:arial, sans-serif;font-size:13px;color:black;">
+	<tr>
+	  <td><a href="https://www.google.co.in/intl/en/ads/?fg=1">Advertising</a></td>
+	  <td><a href="https://www.google.co.in/services/?fg=1">Business</a></td>
+	  <td><a href="https://www.google.co.in/intl/en/about/">About</a></td>
+	</tr>
+</table>
+<table style="width:28%;font-family:arial, sans-serif;font-size:13px;color:black;float:right;position:relative;top:-20px;">
+	<tr>
+	  <td><a href="https://www.google.co.in/intl/en/ads/?fg=1">Privacy</a></td>
+	  <td><a href="https://www.google.co.in/services/?fg=1">Terms</a></td>
+	  <td><a href="https://www.google.co.in/intl/en/about/">Settings</a></td>
+	  <td><a href="https://www.google.co.in/intl/en/about/">Use Google.com</a></td>
+	</tr>
+</table>	
+</div>
+</footer>
+</body>
+</html>
