@@ -1,0 +1,83 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	unsigned long long int mul,temp,fact[200],rev[200],itm=1,cnt,num,j;
+	cout<<"\nEnter the Number for which you need to find the factorial of:";
+	cin>>num;
+	for(int i=1;i<=num;i++)
+	{
+		cnt=i;
+		temp=0;
+		j=1;
+		if(cnt==1)
+		{
+		fact[itm]=1;
+		rev[j]=1;
+		}
+		else
+		{ 
+			while(itm!=0)
+			{	
+				
+                if(i == 50)
+                {
+                    cout<<"fact : "<<fact[itm]<<endl;
+                    cout<<mul<<endl;
+                    cout<<temp<<endl;
+                    cout<<itm<<endl;
+                }
+                mul=fact[itm]*i+temp;
+				if(mul>9)
+				{	
+					
+					rev[j]=mul%10;
+					temp=mul/10;
+					j++;
+
+				}
+				else
+				{
+					rev[j]=mul;
+					j++;
+					temp=0;
+					
+				}
+				itm--;
+			}
+		}	
+		if(temp!=0)
+		{
+			rev[j]=temp;
+			itm=j;
+			j=1;
+		}   
+		else
+		{
+			if(cnt==1)
+			{itm=j;
+			cout<<"if itm:"<<itm;
+			}
+			else
+			{
+			itm=j-1;
+			j=1;
+			cout<<"itm:"<<itm;
+			
+			}
+		}	
+		cnt=itm;
+		
+		while(cnt!=0)
+		{
+			fact[cnt]=rev[j];
+			cnt--;
+			j++;
+		}	
+	}
+	cout<<"\nThe factorial is:";
+	
+	for(int k=1;k<=itm;k++)
+	{
+	cout<<fact[k];
+	}
