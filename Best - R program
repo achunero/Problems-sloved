@@ -1,0 +1,21 @@
+best <- function(state,outcome){
+	data <- read.csv("outcome-of-care-measures.csv",na.strings="Not Available",
+					stringsAsFactors=FALSE)
+	state_vect <- unique(data[,"State"])
+	outcome_vect <- c("heart attack"=11,"heart failure"=17,"pneumonia"=23)
+	if(!(state%in%state_vect)){
+	##	return(paste("Error in best(",state,",",outcome,"): invalid state"))
+		stop("invalid state")
+		
+	}
+	if(!(outcome%in%names(outcome_vect))){
+	##	return(paste("Error in best(",state,",",outcome,"): invalid outcome"))
+		stop("invalid outcome")	
+	}
+	newdata <- subset(data,State==state)
+	newdata <- newdata[,c(2,7,outcome_vect[outcome])]
+	newdata <- na.omit(newdata)
+	names(newdata) <- c("hospital", "state", "result")
+	slice <- newdata[order(newdata[,"result"],newdata[,"hospital"]),]
+	slice[1,1]
+}
