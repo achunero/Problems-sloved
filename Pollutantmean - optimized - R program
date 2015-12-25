@@ -1,0 +1,16 @@
+pollutantmean <- function(directory,pollutant,id = 1:332) {
+	all_data = NULL
+for (i in id)
+	{
+		filename <- sprintf("%s/%03d.csv","specdata",i)
+		data <- read.csv(filename)
+		data = na.omit(data)
+		if (pollutant == "sulfate") data = data$sulfate
+		else data = data$nitrate
+		if (is.null(all_data))
+       	 all_data <- data
+    		else
+        	 all_data <- c(all_data, data)
+	}
+mean(all_data)
+}
