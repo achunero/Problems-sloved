@@ -1,0 +1,30 @@
+corr <- function(directory,threshold = 0) {
+	setwd(file.path(getwd(),directory))
+	vectorcor = NULL
+for (i in 1:332)
+	{
+		if (i < 10)
+			{
+				data <- read.csv(paste("0","0",as.character(i),".csv",sep=""),
+					header =T)
+			}
+	 	else if (i >= 10 && i < 100)
+			{
+				data <- read.csv(paste("0",as.character(i),".csv",sep=""),
+					header =T)
+			}
+		else
+			{
+				data <- read.csv(paste(as.character(i),".csv",sep=""),
+					header =T)
+			}
+		data = na.omit(data)
+		total <- nrow(data)
+		sulfate <- data[,2]
+		nitrate <- data[,3]
+		if (total > threshold)
+		 vectorcor <- c(vectorcor,c(cor(sulfate,nitrate)))
+	}
+setwd("..")
+return(vectorcor)
+}
