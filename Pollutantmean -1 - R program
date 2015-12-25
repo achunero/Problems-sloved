@@ -1,0 +1,29 @@
+pollutantmean <- function(directory,pollutant,id = 1:332) {
+	setwd(file.path(getwd(),directory))
+	total=0
+	means=0
+for (i in id)
+	{
+		if (i < 10)
+			{
+				data <- read.csv(paste("0","0",as.character(i),".csv",sep=""),
+					header =T)
+			}
+	 	else if (i >= 10 && i < 100)
+			{
+				data <- read.csv(paste("0",as.character(i),".csv",sep=""),
+					header =T)
+			}
+		else
+			{
+				data <- read.csv(paste(as.character(i),".csv",sep=""),
+					header =T)
+			}
+		data = na.omit(data)
+		if (pollutant == "sulfate") total = total + sum(data$sulfate)
+		else total = total + sum(data$nitrate)
+		means = means + nrow(data)
+	}
+setwd("..")
+return(total/means)
+}
