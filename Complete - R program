@@ -1,0 +1,28 @@
+complete <- function(directory,id) {
+	setwd(file.path(getwd(),directory))
+	frame <- data.frame()
+for (i in id)
+	{
+		if (i < 10)
+			{
+				data <- read.csv(paste("0","0",as.character(i),".csv",sep=""),
+					header =T)
+			}
+	 	else if (i >= 10 && i < 100)
+			{
+				data <- read.csv(paste("0",as.character(i),".csv",sep=""),
+					header =T)
+			}
+		else
+			{
+				data <- read.csv(paste(as.character(i),".csv",sep=""),
+					header =T)
+			}
+		data = na.omit(data)
+		frame <- rbind(frame,c(i,nrow(data)))
+		
+	}
+names(frame) <- c("id","nobs")
+setwd("..")
+return(frame)
+}
