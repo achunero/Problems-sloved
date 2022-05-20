@@ -1,0 +1,100 @@
+# Linked List
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+        
+class LinkedList:
+    def __init__(self):
+        self.head=None
+
+    def traverselist(self):
+        if self.head is None:
+            print("The list is empty")
+            return
+        
+        curr=self.head
+        res=""
+        while curr is not None:
+            if curr.next is None:
+                res+=str(curr.data)+"->None"
+            else:
+                res+=str(curr.data)+"->"
+            curr = curr.next
+        print(res)    
+        return
+    
+    def insertbegining(self,data):
+        new_node = Node(data)
+        if self.head is None:
+            self.head = new_node
+            return
+        
+        new_node.next = self.head
+        self.head = new_node
+        return
+    
+    def insertatend(self,data):
+        new_node = Node(data)
+        if self.head is None:
+            self.head = new_node
+            return
+        
+        curr = self.head
+        while curr.next is not None:
+            curr = curr.next
+        
+        curr.next = new_node
+        return
+
+    def removeduplicateswithbuffer(self):
+        duplicate = set()
+        curr = self.head
+        prev = None
+        while curr.next is not None:
+            if curr.data in duplicate:
+                prev.next = curr.next.next
+                curr = curr.next
+            else:
+                duplicate.add(curr.data)
+                prev = curr
+                curr = curr.next
+        
+        return        
+
+    def removeduplicateswithoutbuffer(self)                :
+        curr = self.head
+        while curr:
+            runner = curr.next
+            prev = curr
+            while runner is not None:
+                if curr.data == runner.data:
+                    prev.next = runner.next
+                    runner = runner.next
+                else:
+                    prev = runner
+                    runner = runner.next
+            curr = curr.next
+        return        
+
+llist = LinkedList()
+llist.traverselist()
+print('\n')
+llist.insertbegining(1)
+llist.insertatend(2)
+llist.insertatend(3)
+llist.insertatend(4)
+llist.insertatend(4)
+llist.insertatend(4)
+llist.insertatend(3)
+llist.insertatend(1)
+llist.insertatend(2)
+llist.insertatend(4)
+llist.insertatend(1)
+llist.traverselist()
+llist.removeduplicateswithoutbuffer()
+llist.traverselist()
+
+
+
+

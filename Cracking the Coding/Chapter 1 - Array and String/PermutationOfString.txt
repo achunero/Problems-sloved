@@ -1,0 +1,13 @@
+def permutation(string,l,r):
+    
+    if l==r:
+        print("".join(string))
+    for i in range(l,r+1):
+        string[l],string[i]=string[i],string[l]
+        permutation(string,l+1,r)
+        string[l],string[i]=string[i],string[l]
+        
+
+a='abc'
+s=list(a)
+permutation(s,0,len(a)-1)

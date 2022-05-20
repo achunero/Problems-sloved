@@ -1,0 +1,28 @@
+def zerorowcol(matrix):
+    row=set()
+    col=set()
+    for i in range(len(matrix[0])):
+        for j in range(len(matrix)):
+            if matrix[i][j] == 0:
+               row.add(i)
+               col.add(j)
+    return(row,col)
+
+def zeromatrix(matrix,row,col):
+    for i in range(len(matrix[0])):
+        for j in range(len(matrix)):
+            if i in row:
+                matrix[i][j]=0
+            if j in col:
+                matrix[i][j]=0
+
+a=[[1,0,1,0,1],[0,0,0,0,0],[1,0,1,0,1],[0,0,0,0,0],[2,0,4,0,6]]
+for i in range(len(a)):
+    print(a[i])
+
+print('\n')
+print('Zero Matrix')
+row,col=zerorowcol(a)
+zeromatrix(a,row,col)
+for i in range(len(a)):
+    print(a[i])

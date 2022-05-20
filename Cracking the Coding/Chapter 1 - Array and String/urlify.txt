@@ -1,0 +1,13 @@
+def stringreplace(s,l):
+    origlen=len(s)
+    for i in range(0,origlen):
+        if s[i] == " ":
+            sprev=s[:i]
+            snext=s[i+1:origlen-2]
+            s=sprev+'%20'+snext
+    print(s)
+
+
+string='Hello There how are you?        '
+strlen=13
+stringreplace(string,strlen)

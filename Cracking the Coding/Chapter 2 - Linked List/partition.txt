@@ -1,0 +1,116 @@
+# Linked List
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+        
+class LinkedList:
+    def __init__(self):
+        self.head=None
+
+    def traverselist(self,nlist=None):
+        if nlist is None:
+            curr = self.head
+        else:
+            curr = nlist
+            
+        if curr is None:
+            print("The list is empty")
+            return
+        
+        res=""
+        while curr is not None:
+            if curr.next is None:
+                res+=str(curr.data)+"->None"
+            else:
+                res+=str(curr.data)+"->"
+            curr = curr.next
+        print(res)    
+        return
+    
+    def insertbegining(self,data):
+        new_node = Node(data)
+        if self.head is None:
+            self.head = new_node
+            return
+        
+        new_node.next = self.head
+        self.head = new_node
+        return
+    
+    def insertatend(self,data):
+        new_node = Node(data)
+        if self.head is None:
+            self.head = new_node
+            return
+        
+        curr = self.head
+        while curr.next is not None:
+            curr = curr.next
+        
+        curr.next = new_node
+        return
+    
+    def reverselist(self,node=None):
+        if node is None:
+            return
+        
+        curr = node
+        prev = None
+        nnext = None
+        
+        while curr:
+            nnext = curr.next
+            curr.next = prev
+            prev = curr
+            curr = nnext
+
+        return prev
+    
+    def listpartition(self,partition):
+        curr = self.head
+        left = right = None
+        
+        while curr:
+            next_node = curr.next
+            curr.next = None
+            if curr.data < partition:
+                if left is None:
+                    left = curr
+                else:
+                    curr.next = left
+                    left = curr
+            if curr.data >= partition:
+                if right is None:
+                    right = curr
+                else:
+                    curr.next = right
+                    right = curr
+            curr = next_node
+        
+        if left:
+            temp = left
+            while temp.next:
+                temp = temp.next
+            temp.next = right
+        else:
+            left = right
+        
+        self.head = left       
+        
+llist = LinkedList()
+llist.insertbegining(7)
+llist.insertatend(2)
+llist.insertatend(9)
+llist.insertatend(1)
+llist.insertatend(6)
+llist.insertatend(3)
+llist.insertatend(8)
+llist.traverselist()
+llist.listpartition(6)
+llist.traverselist()
+
+
+        
+
+

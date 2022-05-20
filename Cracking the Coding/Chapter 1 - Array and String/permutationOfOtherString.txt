@@ -1,0 +1,23 @@
+def permutationofotherstring(s3):
+    letter={}
+    count=1
+    for s in s3:
+        if s in letter:
+            letter[s]+=count
+        else:
+            letter[s]=count
+            
+    for key in letter:
+        if letter[key] % 2 == 1:
+            return(print("Other String is not a permutation"))
+    return(print("Other String is a permutation"))
+        
+def removespace(string):
+    return string.replace(" ","")
+
+a='abc'
+b='cab'
+s1=removespace(a)
+s2=removespace(b)
+s3=s1+s2
+permutationofotherstring(s3)

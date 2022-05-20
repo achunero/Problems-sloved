@@ -1,0 +1,84 @@
+# Linked List
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+        
+class LinkedList:
+    def __init__(self):
+        self.head=None
+
+    def traverselist(self):
+        if self.head is None:
+            print("The list is empty")
+            return
+        
+        curr=self.head
+        res=""
+        while curr is not None:
+            if curr.next is None:
+                res+=str(curr.data)+"->None"
+            else:
+                res+=str(curr.data)+"->"
+            curr = curr.next
+        print(res)    
+        return
+    
+    def insertbegining(self,data):
+        new_node = Node(data)
+        if self.head is None:
+            self.head = new_node
+            return
+        
+        new_node.next = self.head
+        self.head = new_node
+        return
+    
+    def insertatend(self,data):
+        new_node = Node(data)
+        if self.head is None:
+            self.head = new_node
+            return
+        
+        curr = self.head
+        while curr.next is not None:
+            curr = curr.next
+        
+        curr.next = new_node
+        return
+    
+    def kthtolastelement(self,k):
+        temp=self.head
+        count=0
+        while temp:
+            temp=temp.next
+            count+=1
+        
+        print("The number of nodes in the list is ->",count)
+        
+        if k > count:
+            print("Element does not exists")
+            return
+        
+        curr = self.head
+        for i in range(count-k):
+            curr = curr.next
+        
+        print("The kth Elemenet is->",str(curr.data))
+        
+        return
+            
+    
+
+llist = LinkedList()
+llist.insertbegining(1)
+llist.insertatend(2)
+llist.insertatend(3)
+llist.insertatend(4)
+llist.insertatend(5)
+llist.traverselist()
+llist.kthtolastelement(4)
+
+
+
+

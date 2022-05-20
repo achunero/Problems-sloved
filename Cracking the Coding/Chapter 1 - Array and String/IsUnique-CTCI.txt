@@ -1,0 +1,11 @@
+def uniquestring(string):
+    unique={}
+    for s in string:
+        if s in unique:
+            return 'False'
+        unique[s]='True'
+    return 'True'
+    
+word='hazzel'
+result=uniquestring(word)
+print(result)

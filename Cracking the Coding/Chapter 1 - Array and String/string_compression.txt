@@ -1,0 +1,23 @@
+def stringcompress(string):
+    if not string:
+        return string
+    count=1
+    result=''
+    for i in range(1,len(string)):
+        if string[i] != string[i-1]:
+            cat=string[i-1]+str(count)
+            result +=cat
+            count=1
+        else:
+            count+=1
+    cat=string[i]+str(count)
+    result +=cat    
+    if len(result) > len(string):
+        return string
+    else:
+        return result
+    
+
+a='abcdef'
+r=stringcompress(a)
+print(r)

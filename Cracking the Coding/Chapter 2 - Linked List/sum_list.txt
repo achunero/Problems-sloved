@@ -1,0 +1,113 @@
+# Linked List
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+        
+class LinkedList:
+    def __init__(self):
+        self.head=None
+
+    def traverselist(self,nlist=None):
+        if nlist is None:
+            curr = self.head
+        else:
+            curr = nlist
+            
+        if curr is None:
+            print("The list is empty")
+            return
+        
+        res=""
+        while curr is not None:
+            if curr.next is None:
+                res+=str(curr.data)+"->None"
+            else:
+                res+=str(curr.data)+"->"
+            curr = curr.next
+        print(res)    
+        return
+    
+    def insertbegining(self,data):
+        new_node = Node(data)
+        if self.head is None:
+            self.head = new_node
+            return
+        
+        new_node.next = self.head
+        self.head = new_node
+        return
+    
+    def insertatend(self,data):
+        new_node = Node(data)
+        if self.head is None:
+            self.head = new_node
+            return
+        
+        curr = self.head
+        while curr.next is not None:
+            curr = curr.next
+        
+        curr.next = new_node
+        return
+    
+    def reverselist(self,node=None):
+        if node is None:
+            return
+        
+        curr = node
+        prev = None
+        nnext = None
+        
+        while curr:
+            nnext = curr.next
+            curr.next = prev
+            prev = curr
+            curr = nnext
+
+        return prev
+    
+    def linkedlistsum(self,l1,l2):
+        result = self
+        c=0
+        r=0
+        while l1 is not None or l2 is not None:
+            if l1 is None:
+                s = l2.data + c
+                c = s//10
+                r = s%10
+                result.insertatend(r)
+                l2 = l2.next
+            elif l2 is None:
+                s = l1.data + c
+                c = s//10
+                r = s%10
+                result.insertatend(r)
+                l1 = l1.next
+            else:
+                s = l1.data + l2.data + c
+                c = s//10
+                r = s%10
+                result.insertatend(r)
+                l1 = l1.next
+                l2 = l2.next
+            
+            
+        
+l1 = LinkedList()
+l2 = LinkedList()
+l1.insertbegining(7)
+l1.insertatend(5)
+l1.insertatend(9)
+l1.insertatend(4)
+l1.insertatend(6)
+l1.traverselist()
+l2.insertatend(8)
+l2.insertatend(4)
+l2.traverselist()
+r = LinkedList()
+r.linkedlistsum(l1.head,l2.head)
+r.traverselist()
+        
+
+
